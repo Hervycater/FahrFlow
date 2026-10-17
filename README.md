@@ -29,7 +29,7 @@ Wer neu einsteigt, soll anhand dieser Dateien den Projektstand, die verbindliche
 5. `docs/decisions.md`: fachliche und technische Entscheidungen; für den Product Manager immer, für die anderen Rollen, soweit ihre Aufgabe betroffen ist. `docs/architecture.md` bei technischen Fragen.
 6. Bei der Übernahme bestehender Arbeit: zuerst die letzten Einträge der eigenen Berichtsdatei in `reports/`, danach die relevanten Einträge der Berichtsdateien der anderen Agenten und, falls vorhanden, der letzte Abschlussbericht
 
-Verbindliche Dateien werden von `main` gelesen; die eigene Arbeit (eigener Schreibbereich einschließlich der eigenen Berichtsdatei) vom eigenen Branch (siehe „Branches und Zusammenführung“).
+Verbindliche Dateien werden von `main` gelesen; die eigene Arbeit (eigener Schreibbereich einschließlich der eigenen Berichtsdatei) vom eigenen Branch (siehe „Branches und Zusammenführung").
 
 ## Ordnerstruktur und Zuständigkeiten
 
@@ -88,7 +88,7 @@ Die Ordnerstruktur dokumentiert Zuständigkeiten, nicht automatisch den Fertigst
 
 1. **Ein Bereich, eine Zuständigkeit.** Jeder Agent arbeitet ausschließlich in dem Bereich, den die Zuständigkeitstabelle ihm zuweist. Diese Tabelle ist die Obergrenze, ein Arbeitsauftrag erweitert sie nicht. Änderungen außerhalb dieses Bereichs werden vorgeschlagen und nicht eigenständig vorgenommen.
 
-2. **Spezifikationen sind verbindlich.** Die Umsetzung muss den freigegebenen Spezifikationen entsprechen. Wo eine Spezifikation keine Vorgabe macht, ist die technische Umsetzung frei, sofern sie keine nicht vereinbarten fachlichen Auswirkungen erzeugt. Seiteneffekte sind nur zulässig, wenn die Spezifikation sie unter „Zustandsänderungen“ vorsieht.
+2. **Spezifikationen sind verbindlich.** Die Umsetzung muss den freigegebenen Spezifikationen entsprechen. Wo eine Spezifikation keine Vorgabe macht, ist die technische Umsetzung frei, sofern sie keine nicht vereinbarten fachlichen Auswirkungen erzeugt. Seiteneffekte sind nur zulässig, wenn die Spezifikation sie unter „Zustandsänderungen" vorsieht.
 
 3. **Spezifikationen ändert nur der Projektinhaber.** Der Product Manager legt neue Spezifikationsdateien im Status *Entwurf* in `specs/` nur im Arbeitsauftrag an. Bestehende Spezifikationsdateien, auch die von ihm entworfenen, ändert er nicht; Änderungen schlägt er in seinem Bericht vor. Andere Agenten ändern keine Spezifikationsdateien und schlagen Änderungen in ihren Berichten vor.
 
@@ -98,9 +98,9 @@ Die Ordnerstruktur dokumentiert Zuständigkeiten, nicht automatisch den Fertigst
 
 6. **Querschnittsregeln gelten für alle Schnittstellenspezifikationen.** *(projektspezifisch)* Anmeldung, Fehlerformat, Eingaberegeln, Zeitangaben, Kennungen, Haltbarkeit und Gleichzeitigkeit sind in `specs/product.md`, Abschnitt 6, festgelegt. Sie gelten nicht für das Berichtswesen, das seine Zeitangaben und Kennungen selbst regelt.
 
-7. **Keine stillschweigenden Produktentscheidungen.** Unklare, widersprüchliche oder fehlende Anforderungen werden im Bericht unter „Rückfragen und Folgeentscheidungen“ dokumentiert (Format B: unter „Widersprüche und Lücken in den Spezifikationen“ oder „Rückfragen“). Agenten dürfen sie nicht eigenmächtig durch fachliche Annahmen ersetzen.
+7. **Keine stillschweigenden Produktentscheidungen.** Unklare, widersprüchliche oder fehlende Anforderungen werden im Bericht unter „Rückfragen und Folgeentscheidungen" dokumentiert (Format B: unter „Widersprüche und Lücken in den Spezifikationen" oder „Rückfragen"). Agenten dürfen sie nicht eigenmächtig durch fachliche Annahmen ersetzen.
 
-8. **Technische Entscheidungen werden dokumentiert.** Entscheidungen zu Datenhaltung, Sitzungsverwaltung, Technologie, Hosting und Dateispeicherung werden in `docs/decisions.md` festgehalten. Agenten schlagen Einträge in ihren Berichten vor (Format A: unter „Annahmen und Vorschläge“; Format B: unter „Rückfragen“), der Projektinhaber trägt sie ein. Technische Vorschläge dürfen keine freigegebenen Produktanforderungen abschwächen.
+8. **Technische Entscheidungen werden dokumentiert.** Entscheidungen zu Datenhaltung, Sitzungsverwaltung, Technologie, Hosting und Dateispeicherung werden in `docs/decisions.md` festgehalten. Agenten schlagen Einträge in ihren Berichten vor (Format A: unter „Annahmen und Vorschläge"; Format B: unter „Rückfragen"), der Projektinhaber trägt sie ein. Technische Vorschläge dürfen keine freigegebenen Produktanforderungen abschwächen.
 
 9. **Nichts geht ungeprüft in `main`.** Änderungen der Agenten kommen ausschließlich über Pull Requests nach `main`. Ein Agent darf einen Pull Request von seinem Branch eröffnen; prüfen und zusammenführen darf ihn nur der Projektinhaber. Der Projektinhaber darf seine eigenen Bereiche direkt auf `main` ändern. Kein Agent darf die Freigabe des Projektinhabers ersetzen.
 
@@ -110,9 +110,9 @@ Die Ordnerstruktur dokumentiert Zuständigkeiten, nicht automatisch den Fertigst
 
 12. **Rollenanweisungen ändert nur der Projektinhaber.** Kein Agent schreibt oder ändert Rollenanweisungen, auch nicht die eines anderen Agenten. Jeder Agent liest nur seine eigene Rollenanweisung. Ausnahmen: Der Assistent liest alle Rollenanweisungen, das gehört zu seiner Rolle. Der Product Manager liest die der anderen Rollen nur, wenn ein Arbeitsauftrag es verlangt. Änderungen schlagen Agenten in ihren Berichten vor; der Assistent kann sie als Entwurf ausformulieren. Das Lesen lässt sich technisch nicht sperren, diese Regel bindet die Agenten.
 
-13. **Arbeitsaufträge.** Jeder Agent arbeitet nur im Rahmen eines Arbeitsauftrags des Projektinhabers (siehe „Arbeitsaufträge“).
+13. **Arbeitsaufträge.** Jeder Agent arbeitet nur im Rahmen eines Arbeitsauftrags des Projektinhabers (siehe „Arbeitsaufträge").
 
-14. **Ein fester Branch je Rolle.** Jeder Agent schreibt nur auf seinem Branch; verbindliche Dateien liest er von `main` (siehe „Branches und Zusammenführung“).
+14. **Ein fester Branch je Rolle.** Jeder Agent schreibt nur auf seinem Branch; verbindliche Dateien liest er von `main` (siehe „Branches und Zusammenführung").
 
 ## Rollen
 
@@ -129,18 +129,18 @@ Die Zuständigkeit eines Agenten berechtigt ihn nicht dazu, Produktentscheidunge
 
 ### Besonderheiten des QA-Agenten
 
-- Bei Prüfaufträgen prüft er, soweit prüfbar, ob Backend und Frontend dieselbe Spezifikation übereinstimmend interpretieren. Dafür liest er die Branches, die der Arbeitsauftrag als Prüfgegenstand nennt.
-- Er dokumentiert die Konsistenzprüfung in Format B unter „Prüfumfang“; festgestellte Unterschiede führt er unter „Abweichungen“ mit Bezug auf die Spezifikation auf.
+- Bei Prüfaufträgen prüft er, soweit prüfbar, ob Backend und Frontend dieselbe Spezifikation übereinstimmend interpretieren. Die Regeln für seinen Lesezugriff sind in „Branches und Zusammenführung", Punkt 3, festgelegt.
+- Er dokumentiert die Konsistenzprüfung in Format B unter „Prüfumfang"; festgestellte Unterschiede führt er unter „Abweichungen" mit Bezug auf die Spezifikation auf.
 - Er berichtet, korrigiert aber nicht. Welche Interpretation gilt, entscheidet der Projektinhaber.
 
 ### Besonderheiten des Assistenten
 
 - Der Assistent ändert keine Datei außer seiner Berichtsdatei, auch keine Rollenanweisung. Entwürfe für Rollenanweisungen stehen als Text in seinem Bericht; der Projektinhaber übernimmt sie nach `agents/`.
-- Rollenentwürfe und Rollenprüfungen erledigt er im Arbeitsauftrag. Das Zusammenfassen von Gesprächen gehört zur Rolle und braucht keinen eigenen Arbeitsauftrag. In einer Sitzung ohne besonderen Arbeitsauftrag trägt er im Feld „Arbeitsauftrag (Wortlaut)“ „Allgemeines Gespräch“ ein.
-- Eine Rollenprüfung misst den geprüften Agenten an seiner Rollenanweisung und dieser README. Der Assistent benennt seine Belege (Berichte, Commits) und führt jeden Befund unter „Offene Punkte“ mit Rolle, Beleg und Abweichung auf.
-- Absprachen und Entscheidungen aus Gesprächen stehen im Abschnitt „Besprochen und entschieden“ seines Berichts.
+- Rollenentwürfe und Rollenprüfungen erledigt er im Arbeitsauftrag. Das Zusammenfassen von Gesprächen gehört zur Rolle und braucht keinen eigenen Arbeitsauftrag. In einer Sitzung ohne besonderen Arbeitsauftrag trägt er im Feld „Arbeitsauftrag (Wortlaut)" „Allgemeines Gespräch" ein.
+- Eine Rollenprüfung misst den geprüften Agenten an seiner Rollenanweisung und dieser README. Der Assistent benennt seine Belege (Berichte, Commits) und führt jeden Befund unter „Offene Punkte" mit Rolle, Beleg und Abweichung auf.
+- Absprachen und Entscheidungen aus Gesprächen stehen im Abschnitt „Besprochen und entschieden" seines Berichts.
 - Eine Prozess-Retro führt er im Arbeitsauftrag am Phasenende durch. Sie prüft, ob der Prozess selbst funktioniert: Klarheit der Arbeitsaufträge, Passung der Berichtsformate, Reibungen, Über- und Untersteuerung. Ergebnis ist ein Bericht in `reports/assistent-berichte.md`; der Product Manager referenziert ihn im Abschlussbericht.
-- Im Rahmen der Rollenprüfung prüft er auch, ob Agenten Annahmen still getroffen oder nicht dokumentiert haben, und ob daraus unvereinbare Interpretationen zwischen Rollen entstanden sind. Er meldet solche Fälle unter „Offene Punkte“ mit Rolle und Beleg. Er löst sie nicht.
+- Im Rahmen der Rollenprüfung prüft er auch, ob Agenten Annahmen still getroffen oder nicht dokumentiert haben, und ob daraus unvereinbare Interpretationen zwischen Rollen entstanden sind. Er meldet solche Fälle unter „Offene Punkte" mit Rolle und Beleg. Er löst sie nicht.
 - Er trifft keine Produktentscheidungen und gibt nichts frei.
 
 ## Arbeitsaufträge
@@ -148,11 +148,11 @@ Die Zuständigkeit eines Agenten berechtigt ihn nicht dazu, Produktentscheidunge
 **Arbeitsauftrag:** Anweisung des Projektinhabers an genau einen Agenten, eine bestimmte Aufgabe auszuführen.
 
 1. **Wer:** Nur der Projektinhaber erteilt Arbeitsaufträge. Kein Agent, kein Bericht und keine Rollenanweisung erteilt einen. Vorschläge in Berichten sind keine Aufträge.
-2. **Inhalt:** Mindestens Adressat, Aufgabe, betroffene Dateien oder Ordner, das erwartete Ergebnis und die Definition of Session Done. Bei Prüfungen nennt er außerdem den Prüfgegenstand mit Branch.
-3. **Form und Nachweis:** Der Arbeitsauftrag wird in der Sitzung erteilt (Chat oder Startanweisung). Der Agent hält seinen Wortlaut im Bericht fest. Ohne dokumentierten Arbeitsauftrag besteht keine Befugnis, die „nur im Arbeitsauftrag“ gilt. Rollenanweisungen enthalten keine Arbeitsaufträge; sie beschreiben die dauerhafte Rolle, einschließlich Dauerpflichten, die ohne eigenen Arbeitsauftrag gelten (die Berichtspflicht und beim Assistenten das Zusammenfassen von Gesprächen).
+2. **Inhalt:** Mindestens Adressat, Aufgabe, betroffene Dateien oder Ordner, das erwartete Ergebnis und die Definition of Session Done. Bei Prüfaufträgen nennt er außerdem die Spezifikation(en) mit Version und den Prüfgegenstand mit Branch.
+3. **Form und Nachweis:** Der Arbeitsauftrag wird in der Sitzung erteilt (Chat oder Startanweisung). Der Agent hält seinen Wortlaut im Bericht fest. Ohne dokumentierten Arbeitsauftrag besteht keine Befugnis, die „nur im Arbeitsauftrag" gilt. Rollenanweisungen enthalten keine Arbeitsaufträge; sie beschreiben die dauerhafte Rolle, einschließlich Dauerpflichten, die ohne eigenen Arbeitsauftrag gelten (die Berichtspflicht und beim Assistenten das Zusammenfassen von Gesprächen).
 4. **Dauer:** Ein Arbeitsauftrag gilt für eine Sitzung und endet mit Abschluss oder Abbruch. Offene Punkte aus dem letzten Bericht sind für die Folgesitzung nur Kontext; sie werden nur bearbeitet, wenn der neue Arbeitsauftrag es verlangt.
-5. **Grenze:** Die Zuständigkeitstabelle ist die Obergrenze, der Arbeitsauftrag nur der Auslöser innerhalb davon. Als „nur im Arbeitsauftrag“ gelten: neue Spezifikationsdateien, der Architekturentwurf und der Abschlussbericht (Product Manager), das Lesen fremder Rollenanweisungen (Product Manager) sowie Rollenentwürfe, Rollenprüfungen und die Prozess-Retro (Assistent). Kein Arbeitsauftrag verleiht Schreibrechte auf `README.md`, `agents/`, `.github/` oder `docs/decisions.md`.
-6. **Unklarheit:** Ist ein Arbeitsauftrag unklar, fragt der Agent nach. Ist niemand erreichbar, wählt er die engste Lesart und vermerkt das im Bericht unter „Annahmen und Vorschläge“.
+5. **Grenze:** Die Zuständigkeitstabelle ist die Obergrenze, der Arbeitsauftrag nur der Auslöser innerhalb davon. Als „nur im Arbeitsauftrag" gelten: neue Spezifikationsdateien, der Architekturentwurf und der Abschlussbericht (Product Manager), das Lesen fremder Rollenanweisungen (Product Manager) sowie Rollenentwürfe, Rollenprüfungen und die Prozess-Retro (Assistent). Kein Arbeitsauftrag verleiht Schreibrechte auf `README.md`, `agents/`, `.github/` oder `docs/decisions.md`.
+6. **Unklarheit:** Ist ein Arbeitsauftrag unklar, fragt der Agent nach. Ist niemand erreichbar, wählt er die engste Lesart und vermerkt das im Bericht unter „Annahmen und Vorschläge".
 
 ### Definition of Session Done
 
@@ -163,9 +163,9 @@ Die Definition of Session Done legt fest, wann eine Sitzung als abgeschlossen gi
 - erforderliche Tests oder Prüfungen,
 - ob ein Pull Request zu eröffnen ist.
 
-Bei Erkundungs-, Analyse- oder Entwurfsaufträgen darf sie lauten: „Ergebnis ist ein Bericht mit Optionen; keine Implementierung.“
+Bei Erkundungs-, Analyse- oder Entwurfsaufträgen darf sie lauten: „Ergebnis ist ein Bericht mit Optionen; keine Implementierung."
 
-Fehlt die Definition of Session Done, wählt der Agent die engste Lesart, vermerkt das im Bericht unter „Annahmen und Vorschläge“ und arbeitet nicht über den erkennbaren Auftrag hinaus.
+Fehlt die Definition of Session Done, wählt der Agent die engste Lesart, vermerkt das im Bericht unter „Annahmen und Vorschläge" und arbeitet nicht über den erkennbaren Auftrag hinaus.
 
 ## Arbeitsablauf
 
@@ -183,7 +183,7 @@ Fehlt die Definition of Session Done, wählt der Agent die engste Lesart, vermer
 
 7. **Unabhängig prüfen:** QA führt die Abnahmetests aus und prüft insbesondere Berechtigungen, Fehlerfälle, Zustandsübergänge, gleichzeitige Anfragen und die vollständige Durchführung des Hauptablaufs.
 
-8. **Berichten und freigeben:** Jeder Agent führt seinen Bericht von Sitzungsbeginn an (siehe „Berichtswesen“) und schließt ihn am Ende der Sitzung ab: erledigte Aufgaben, offene Punkte, Testergebnisse und notwendige Folgeentscheidungen. Der Projektinhaber entscheidet über die Freigabe und führt die Pull Requests zusammen.
+8. **Berichten und freigeben:** Jeder Agent führt seinen Bericht von Sitzungsbeginn an (siehe „Berichtswesen") und schließt ihn am Ende der Sitzung ab: erledigte Aufgaben, offene Punkte, Testergebnisse und notwendige Folgeentscheidungen. Der Projektinhaber entscheidet über die Freigabe und führt die Pull Requests zusammen.
 
 9. **Phase abschließen:** Erklärt der Projektinhaber eine Phase für beendet, beauftragt er zuerst den Assistenten mit der Prozess-Retro und danach den Product Manager mit dem Abschlussbericht. Voraussetzung ist, dass die Berichte der Phase einschließlich der Prozess-Retro per Pull Request in `main` sind. Der Abschlussbericht dient als Vorlage für die Vorführung und als Grundlage für die Arbeitsaufträge der nächsten Phase. Der Projektinhaber nimmt die Phase ab.
 
@@ -215,24 +215,25 @@ Begleitend prüft der Assistent im Arbeitsauftrag, ob die Agenten ihre Rolle erf
 - Verbindliche Dateien (README, Rollenanweisung, Spezifikationen, Entscheidungen, Berichte anderer Agenten) liest ein Agent ausschließlich von `main`. Entwürfe auf anderen Branches sind keine Arbeitsgrundlage.
 - Den eigenen Branch liest und schreibt er. Andere Branches ignoriert er.
 - Es gelten folgende Ausnahmen:
-  1. **QA-Agent:** Darf die Branches lesen, die im jeweiligen Prüfauftrag ausdrücklich als Prüfgegenstand genannt sind. QA liest den Branch, den der Arbeitsauftrag als Prüfgegenstand nennt, zum Beispiel `agent/backend`. Ist der Prüfbereich unklar, muss er vor der Prüfung Rückfrage halten.
+  1. **QA-Agent:** Darf die Branches lesen, die im jeweiligen Prüfauftrag ausdrücklich als Prüfgegenstand genannt sind. Für Konsistenzprüfungen zwischen Backend und Frontend muss der Prüfauftrag **beide Branches ausdrücklich** als Prüfgegenstand nennen. Ist der Prüfbereich unklar, muss QA vor der Prüfung Rückfrage halten.
   2. **Assistent:** Darf alle Branches des Repositories lesen, soweit dies für seine Aufgaben erforderlich ist. Dies umfasst insbesondere rollenübergreifende Analysen und die Prüfung, ob Agenten ihre Rollenanweisungen einhalten.
-- Verbindliche Referenz bei Prüfungen: QA verwendet den ausdrücklich genannten Branch als Prüfgegenstand für die zu prüfende Implementierung. main bleibt die Referenz für verbindliche Regeln und ausdrücklich freigegebene Anforderungen. Entwürfe oder Änderungen auf anderen Branches werden nicht allein dadurch verbindlich, dass QA sie liest.
+- **Verbindliche Referenz bei Prüfungen:** Für die Prüfung der Implementierung nutzt QA den genannten Branch als Prüfgegenstand. Die Spezifikationen und Anforderungen liest QA aber ausschließlich von `main`. Entwürfe oder Änderungen auf anderen Branches werden nicht allein dadurch verbindlich, dass QA sie liest.
 - **Technische Absicherung:** Repository-Berechtigungen sollen die festgelegten Zugriffsgrenzen unterstützen und, soweit technisch möglich, absichern. Die tatsächlichen technischen Möglichkeiten und Einschränkungen sind bei der Einrichtung zu berücksichtigen.
 
 ### 4. Vertrauen und Regelkonformität
+
 Die Zugriffs- und Schreibregeln sind verbindliche Arbeitsregeln. Jeder Agent ist verpflichtet, die README und seine eigene Rollenanweisung einzuhalten.
 
 Technische Repository-Berechtigungen und Schutzregeln unterstützen die Einhaltung dieser Vorgaben, ersetzen aber weder die Regelbeachtung noch die Prüfung der tatsächlichen technischen Absicherung. Aus einer beschriebenen Schutzmaßnahme darf nicht geschlossen werden, dass sie bereits eingerichtet oder wirksam ist.
 
-Der Assistent prüft im Rahmen seiner Rollenprüfungen, soweit anhand der verfügbaren Informationen möglich, ob Agenten die festgelegten Zugriffs- und Schreibregeln einhalten. Festgestellte Abweichungen dokumentiert er mit nachvollziehbaren Belegen in seinem Bericht und legt sie dem Projektinhaber zur Entscheidung vor.
+Der Assistent prüft im Rahmen seiner Rollenprüfungen, soweit anhand der verfügbaren Informationen möglich, ob Agenten die festgelegten Zugriffs- und Schreibregeln einhalten. Festgestellte Abweichungen dokumentiert er mit nachvollziehbaren Belegen in seinem Bericht und legt sie dem Projektinhaber zur Entscheidung vor. **Wichtig:** Die Assistent-Prüfung basiert auf Berichten und Commits und kann nicht alle Zugriffe vollständig überwachen. Die technischen Schutzmaßnahmen (siehe Punkt 6) sind essentiell.
 
-Der Assistent darf festgestellte Verstöße nicht eigenmächtig durch Änderungen an fremden Dateien oder Branches korrigieren. Über notwendige Korrekturen und Änderungen am Regelwerk entscheidet der Projektinhaber.
+Der Assistent darf festgestellte Verstöße nicht eigenmächtig durch Änderungen an fremden Dateien oder Branches korrigieren. Über notwendige Korrektionen und Änderungen am Regelwerk entscheidet der Projektinhaber.
 
 ### 5. Zusammenführung
 
 - Zu Sitzungsbeginn holt der Agent `main` per Merge in seinen Branch.
-- Ein Agent darf einen Pull Request von seinem Branch nach `main` eröffnen (Vorlage: `.github/pull_request_template.md`). Prüfen und zusammenführen darf nur der Projektinhaber, mit „Merge commit“ ohne Squash, damit die Agenten-Branches mit `main` verträglich bleiben.
+- Ein Agent darf einen Pull Request von seinem Branch nach `main` eröffnen (Vorlage: `.github/pull_request_template.md`). Prüfen und zusammenführen darf nur der Projektinhaber, mit „Merge commit" ohne Squash, damit die Agenten-Branches mit `main` verträglich bleiben.
 
 ### 6. Technische Absicherung (vom Projektinhaber einzurichten)
 
@@ -246,7 +247,7 @@ Der Projektinhaber führt die folgenden Aufgaben schrittweise aus und dokumentie
 4. **Schreibzugriff prüfen:** Der Projektinhaber prüft, welche Repository-Berechtigungen und Branch-Regeln für die tatsächlich verwendeten Agenten zur Verfügung stehen. Ziel ist, Schreibzugriffe auf fremde Branches und unzulässige Änderungen an geschützten Bereichen so weit wie technisch möglich zu verhindern.
 5. **Einrichtungsstand dokumentieren:** Nicht eingerichtete oder nicht erfolgreich geprüfte Schutzmaßnahmen bleiben ausdrücklich offene Aufgaben. Die Arbeitsregeln gelten unabhängig davon weiterhin für alle Agenten.
 
-Branch Protection Rules allein garantieren nicht, dass jeder Agent ausschließlich in seinen eigenen Branch schreiben kann. Die tatsächliche Schutzwirkung hängt von der eingerichteten Konfiguration und den Zugriffsrechten ab.
+**Wichtig:** Branch Protection Rules allein garantieren nicht, dass jeder Agent ausschließlich in seinen eigenen Branch schreiben kann. Die tatsächliche Schutzwirkung hängt von der eingerichteten Konfiguration und den Zugriffsrechten ab.
 
 ## Berichtswesen
 
@@ -254,7 +255,7 @@ Branch Protection Rules allein garantieren nicht, dass jeder Agent ausschließli
 
 Jeder Agent berichtet über jede Sitzung. Der Bericht ist Teil der Arbeit und kein Nachtrag. Agenten haben kein Gedächtnis an frühere Sitzungen. Die eigene Berichtsdatei ist deshalb die Übergabe zwischen Sitzungen und gegenüber dem Projektinhaber.
 
-Übergabe-Minimum. Jeder Bericht muss so vollständig sein, dass die nächste Sitzung ohne nicht dokumentierten Kontext arbeiten kann. Das umfasst mindestens: aktueller Stand, nächster konkreter Schritt, blockierende Rückfragen, getroffene Annahmen und offene Risiken. Was die nächste Sitzung nicht wissen muss, muss der Bericht nicht enthalten. Der Bericht ersetzt keine Spezifikation und keine Entscheidung des Projektinhabers.
+**Übergabe-Minimum:** Jeder Bericht muss so vollständig sein, dass die nächste Sitzung ohne nicht dokumentierten Kontext arbeiten kann. Das umfasst mindestens: aktueller Stand, nächster konkreter Schritt, blockierende Rückfragen, getroffene Annahmen und offene Risiken. Was die nächste Sitzung nicht wissen muss, muss der Bericht nicht enthalten. Der Bericht ersetzt keine Spezifikation und keine Entscheidung des Projektinhabers.
 
 ### 2. Ablage
 
@@ -311,13 +312,13 @@ Product Manager, Backend-Agent, Frontend-Agent und Assistent verwenden für Sitz
 
 **Status:** laufend | abgeschlossen | abgebrochen
 **Arbeitsauftrag (Wortlaut) und Bezug:** [Wortlaut des Arbeitsauftrags, betroffene Dateien, Spezifikationen mit Version]
-**Abbruchgrund und nächster Schritt:** [nur bei Status abgebrochen, sonst „Entfällt“]
+**Abbruchgrund und nächster Schritt:** [nur bei Status abgebrochen, sonst „Entfällt"]
 
 ### Erledigt
 [Welche Dateien und Aufgaben, jeweils ein Satz]
 
 ### Besprochen und entschieden
-[Absprachen mit dem Projektinhaber in dieser Sitzung in Sätzen. Getroffene Entscheidungen sind als „Entscheidung“ gekennzeichnet, damit der Projektinhaber sie in docs/decisions.md übernehmen kann. Oder: Keine.]
+[Absprachen mit dem Projektinhaber in dieser Sitzung in Sätzen. Getroffene Entscheidungen sind als „Entscheidung" gekennzeichnet, damit der Projektinhaber sie in docs/decisions.md übernehmen kann. Oder: Keine.]
 
 ### Annahmen und Vorschläge
 [Jede Annahme und jeder Vorschlag mit Begründung. Oder: Keine.]
@@ -338,9 +339,9 @@ Product Manager, Backend-Agent, Frontend-Agent und Assistent verwenden für Sitz
 [Ergebnis der Prüfliste aus der eigenen Rollenanweisung. Enthält sie keine, prüft der Agent gegen die Grundregeln und die Arbeitsaufträge dieser README und nennt, was er geprüft hat.]
 ```
 
-Kein Abschnitt bleibt leer. Gibt es nichts zu berichten, steht dort ausdrücklich „Keine“. Solange der Status *laufend* ist, darf ein noch nicht bearbeiteter Abschnitt „Noch offen“ lauten. Bei Status *abgeschlossen* ist das nicht zulässig.
+Kein Abschnitt bleibt leer. Gibt es nichts zu berichten, steht dort ausdrücklich „Keine". Solange der Status *laufend* ist, darf ein noch nicht bearbeiteter Abschnitt „Noch offen" lauten. Bei Status *abgeschlossen* ist das nicht zulässig.
 
-Übergabe. Status und „Erledigt“ (aktueller Stand), „Offene Punkte“ (nächster Schritt und offene Risiken), „Rückfragen und Folgeentscheidungen“ (blockierende Rückfragen) und „Annahmen und Vorschläge“ (getroffene Annahmen) bilden zusammen die Übergabe an die nächste Sitzung. Beim Abschließen prüft der Agent, ob diese Abschnitte ausreichen, damit die nächste Sitzung ohne nicht dokumentierten Kontext arbeiten kann.
+**Übergabe:** Status und „Erledigt" (aktueller Stand), „Offene Punkte" (nächster Schritt und offene Risiken), „Rückfragen und Folgeentscheidungen" (blockierende Rückfragen) und „Annahmen und Vorschläge" (getroffene Annahmen) bilden zusammen die Übergabe an die nächste Sitzung. Beim Abschließen prüft der Agent, ob diese Abschnitte ausreichen, damit die nächste Sitzung ohne nicht dokumentierten Kontext arbeiten kann.
 
 ### 6. Berichtsformat B (Sitzungsbericht, ausschließlich für QA)
 
@@ -352,10 +353,10 @@ Der QA-Agent verwendet für jeden Sitzungsbericht, ob Prüfung oder Testerstellu
 **Status:** laufend | abgeschlossen | abgebrochen
 **Arbeitsauftrag (Wortlaut):** [Wortlaut des Arbeitsauftrags]
 **Prüfgegenstand:** [Spezifikationen mit Version, geprüfter Branch und Stand der Implementierung; bei Testerstellung die Spezifikationen, aus denen die Tests abgeleitet wurden]
-**Abbruchgrund und nächster Schritt:** [nur bei Status abgebrochen, sonst „Entfällt“]
+**Abbruchgrund und nächster Schritt:** [nur bei Status abgebrochen, sonst „Entfällt"]
 
 ### Prüfumfang
-[Was wurde geprüft: Spezifikationen, Abnahmebeispiele, Berechtigungen, Fehlerfälle, Zustandsübergänge, gleichzeitige Anfragen, Hauptablauf, bei Beauftragung die Konsistenz der Interpretation zwischen Backend und Frontend. Was wurde ausdrücklich nicht geprüft.]
+[Was wurde geprüft: Spezifikationen, Abnahmebeispiele, Berechtigungen, Fehlerfälle, Zustandsübergänge, gleichzeitige Anfragen, Hauptablauf, wenn der Prüfauftrag Konsistenzprüfung zwischen Backend und Frontend anfordert. Was wurde ausdrücklich nicht geprüft.]
 
 ### Testergebnisse
 | Test | Bezug (Spezifikation, Abnahmebeispiel) | Erwartet | Tatsächlich | Ergebnis |
@@ -381,7 +382,7 @@ Ergebnis: bestanden | nicht bestanden | nicht ausführbar
 
 Auch bei Format B bleibt kein Abschnitt leer. Es gelten die Regeln zum Fortschreiben, zum Abschließen und zum Abbruch aus Abschnitt 4.
 
-Übergabe. Die Abschnitte „Abweichungen“, „Offene Risiken und Prüflücken“ und „Rückfragen“ bilden zusammen die Übergabe an die nächste Sitzung. Beim Abschließen prüft QA, ob diese Abschnitte ausreichen, damit die nächste Sitzung ohne nicht dokumentierten Kontext arbeiten kann.
+**Übergabe:** Die Abschnitte „Abweichungen", „Offene Risiken und Prüflücken" und „Rückfragen" bilden zusammen die Übergabe an die nächste Sitzung. Beim Abschließen prüft QA, ob diese Abschnitte ausreichen, damit die nächste Sitzung ohne nicht dokumentierten Kontext arbeiten kann.
 
 ### 7. Berichtsformat C (Abschlussbericht, ausschließlich für den Product Manager)
 
@@ -451,7 +452,7 @@ Ablage, Benennung und alle Berichtsformate ändert nur der Projektinhaber.
 | Agent | KI-gestützte Rolle, die Aufgaben in einem festgelegten Bereich ausführt; hat kein Gedächtnis an frühere Sitzungen, was er wissen muss, steht im Repository |
 | Rolle | Aufgabe, Rechte und Grenzen eines Beteiligten, beschrieben in dieser README und, für Agenten, in der Rollenanweisung |
 | Rollenanweisung | Datei in `agents/`, die Aufgabe, Rechte, Grenzen und Prüfliste einer Rolle beschreibt; ändert nur der Projektinhaber |
-| Arbeitsauftrag | Anweisung des Projektinhabers an genau einen Agenten, eine bestimmte Aufgabe auszuführen (siehe „Arbeitsaufträge“) |
+| Arbeitsauftrag | Anweisung des Projektinhabers an genau einen Agenten, eine bestimmte Aufgabe auszuführen (siehe „Arbeitsaufträge") |
 | Definition of Session Done | Festlegung im Arbeitsauftrag, wann eine Sitzung als abgeschlossen gilt; enthält erwartetes Ergebnis, Akzeptanzkriterien, erforderliche Tests, PR-Anforderung |
 | Sitzung | Zusammenhängender Arbeitsabschnitt eines Agenten von Beginn bis zu Abschluss oder Abbruch |
 | Phase | Abgegrenzter Abschnitt des Projekts mit eigenem Umfang und Ziel, den der Projektinhaber festlegt und für beendet erklärt |
