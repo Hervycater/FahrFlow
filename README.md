@@ -213,17 +213,21 @@ Begleitend prüft der Assistent im Arbeitsauftrag, ob die Agenten ihre Rolle erf
 ### 3. Lesen
 
 - Verbindliche Dateien (README, Rollenanweisung, Spezifikationen, Entscheidungen, Berichte anderer Agenten) liest ein Agent ausschließlich von `main`. Entwürfe auf anderen Branches sind keine Arbeitsgrundlage.
-- Den eigenen Branch liest und schreibt er.
-- Andere Branches ignoriert er. Ausnahmen, nur lesend: Der Assistent liest alle Branches. QA liest den Branch, den der Arbeitsauftrag als Prüfgegenstand nennt, zum Beispiel `agent/backend`.
-- **QA-Agent:** Darf die Branches lesen, die im jeweiligen Prüfauftrag ausdrücklich als Prüfgegenstand genannt sind. Ist der Prüfbereich unklar, muss er vor der Prüfung Rückfrage halten.
-- **Assistent:** Darf alle Branches des Repositories lesen, soweit dies für seine Aufgaben erforderlich ist. Dies umfasst insbesondere rollenübergreifende Analysen und die Prüfung, ob Agenten ihre Rollenanweisungen einhalten.
+- Den eigenen Branch liest und schreibt er. Andere Branches ignoriert er.
+- Es gelten folgende Ausnahmen:
+  1. **QA-Agent:** Darf die Branches lesen, die im jeweiligen Prüfauftrag ausdrücklich als Prüfgegenstand genannt sind. QA liest den Branch, den der Arbeitsauftrag als Prüfgegenstand nennt, zum Beispiel `agent/backend`. Ist der Prüfbereich unklar, muss er vor der Prüfung Rückfrage halten.
+  2. **Assistent:** Darf alle Branches des Repositories lesen, soweit dies für seine Aufgaben erforderlich ist. Dies umfasst insbesondere rollenübergreifende Analysen und die Prüfung, ob Agenten ihre Rollenanweisungen einhalten.
+- Verbindliche Referenz bei Prüfungen: QA verwendet den ausdrücklich genannten Branch als Prüfgegenstand für die zu prüfende Implementierung. main bleibt die Referenz für verbindliche Regeln und ausdrücklich freigegebene Anforderungen. Entwürfe oder Änderungen auf anderen Branches werden nicht allein dadurch verbindlich, dass QA sie liest.
 - **Technische Absicherung:** Repository-Berechtigungen sollen die festgelegten Zugriffsgrenzen unterstützen und, soweit technisch möglich, absichern. Die tatsächlichen technischen Möglichkeiten und Einschränkungen sind bei der Einrichtung zu berücksichtigen.
 
 ### 4. Vertrauen und Regelkonformität
 Die Zugriffs- und Schreibregeln sind verbindliche Arbeitsregeln. Jeder Agent ist verpflichtet, die README und seine eigene Rollenanweisung einzuhalten.
-Technische Berechtigungen unterstützen die Einhaltung dieser Regeln, ersetzen aber nicht die Verpflichtung der Agenten, sie zu befolgen.
-Der Assistent prüft im Rahmen seiner Rollenprüfungen, ob Agenten die festgelegten Zugriffs- und Schreibregeln einhalten. Festgestellte Abweichungen dokumentiert er in seinem Bericht und legt sie dem Projektinhaber zur Entscheidung vor.
-Der Assistent darf festgestellte Verstöße nicht eigenmächtig durch Änderungen an fremden Dateien oder Branches korrigieren.
+
+Technische Repository-Berechtigungen und Schutzregeln unterstützen die Einhaltung dieser Vorgaben, ersetzen aber weder die Regelbeachtung noch die Prüfung der tatsächlichen technischen Absicherung. Aus einer beschriebenen Schutzmaßnahme darf nicht geschlossen werden, dass sie bereits eingerichtet oder wirksam ist.
+
+Der Assistent prüft im Rahmen seiner Rollenprüfungen, soweit anhand der verfügbaren Informationen möglich, ob Agenten die festgelegten Zugriffs- und Schreibregeln einhalten. Festgestellte Abweichungen dokumentiert er mit nachvollziehbaren Belegen in seinem Bericht und legt sie dem Projektinhaber zur Entscheidung vor.
+
+Der Assistent darf festgestellte Verstöße nicht eigenmächtig durch Änderungen an fremden Dateien oder Branches korrigieren. Über notwendige Korrekturen und Änderungen am Regelwerk entscheidet der Projektinhaber.
 
 ### 5. Zusammenführung
 
@@ -232,11 +236,17 @@ Der Assistent darf festgestellte Verstöße nicht eigenmächtig durch Änderunge
 
 ### 6. Technische Absicherung (vom Projektinhaber einzurichten)
 
-Die GitHub-Einstellungen ergänzen die Regeln und ersetzen sie nicht.
+Die GitHub-Einstellungen ergänzen die Arbeitsregeln und ersetzen sie nicht. Eine beschriebene Schutzmaßnahme gilt erst dann als eingerichtet, wenn sie im Repository tatsächlich konfiguriert und ihre Wirkung geprüft wurde.
 
-1. **Regelwerk für `main`:** Pull Request verpflichtend; Force-Push und Löschen gesperrt. Der Projektinhaber ist vom Pull-Request-Zwang ausgenommen.
-2. **Pflichtcheck „Pfadprüfung“:** Er bestimmt aus dem Branchnamen die Rolle und schlägt fehl, wenn ein Pull Request Dateien außerhalb der Pfade dieser Rolle laut Zuständigkeitstabelle ändert. Für `agent/product-manager` sind in `specs/` nur hinzugefügte Dateien erlaubt. `README.md`, `agents/`, `.github/` und `docs/decisions.md` sind für alle Agenten gesperrt.
-3. Der Check liegt in `.github/workflows/` und ist damit Sache des Projektinhabers.
+Der Projektinhaber führt die folgenden Aufgaben schrittweise aus und dokumentiert den Einrichtungsstand:
+
+1. **Schutz von `main`:** Pull Request verpflichtend; Force-Push und Löschen gesperrt. Die Einstellungen müssen so geprüft werden, dass der Projektinhaber den vorgesehenen Freigabeprozess weiterhin ausführen kann.
+2. **Pfadprüfung für Pull Requests:** Ein automatisierter Check bestimmt anhand des Branchnamens die Rolle und schlägt fehl, wenn ein Pull Request Dateien außerhalb der für diese Rolle erlaubten Pfade ändert. Für `agent/product-manager` sind in `specs/` nur neu hinzugefügte Dateien erlaubt. `README.md`, `agents/`, `.github/` und `docs/decisions.md` sind für alle Agenten gesperrt.
+3. **Workflow einrichten:** Der Check wird unter `.github/workflows/` abgelegt und vom Projektinhaber eingerichtet und getestet.
+4. **Schreibzugriff prüfen:** Der Projektinhaber prüft, welche Repository-Berechtigungen und Branch-Regeln für die tatsächlich verwendeten Agenten zur Verfügung stehen. Ziel ist, Schreibzugriffe auf fremde Branches und unzulässige Änderungen an geschützten Bereichen so weit wie technisch möglich zu verhindern.
+5. **Einrichtungsstand dokumentieren:** Nicht eingerichtete oder nicht erfolgreich geprüfte Schutzmaßnahmen bleiben ausdrücklich offene Aufgaben. Die Arbeitsregeln gelten unabhängig davon weiterhin für alle Agenten.
+
+Branch Protection Rules allein garantieren nicht, dass jeder Agent ausschließlich in seinen eigenen Branch schreiben kann. Die tatsächliche Schutzwirkung hängt von der eingerichteten Konfiguration und den Zugriffsrechten ab.
 
 ## Berichtswesen
 
