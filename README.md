@@ -215,13 +215,22 @@ Begleitend prüft der Assistent im Arbeitsauftrag, ob die Agenten ihre Rolle erf
 - Verbindliche Dateien (README, Rollenanweisung, Spezifikationen, Entscheidungen, Berichte anderer Agenten) liest ein Agent ausschließlich von `main`. Entwürfe auf anderen Branches sind keine Arbeitsgrundlage.
 - Den eigenen Branch liest und schreibt er.
 - Andere Branches ignoriert er. Ausnahmen, nur lesend: Der Assistent liest alle Branches. QA liest den Branch, den der Arbeitsauftrag als Prüfgegenstand nennt, zum Beispiel `agent/backend`.
+- **QA-Agent:** Darf die Branches lesen, die im jeweiligen Prüfauftrag ausdrücklich als Prüfgegenstand genannt sind. Ist der Prüfbereich unklar, muss er vor der Prüfung Rückfrage halten.
+- **Assistent:** Darf alle Branches des Repositories lesen, soweit dies für seine Aufgaben erforderlich ist. Dies umfasst insbesondere rollenübergreifende Analysen und die Prüfung, ob Agenten ihre Rollenanweisungen einhalten.
+- **Technische Absicherung:** Repository-Berechtigungen sollen die festgelegten Zugriffsgrenzen unterstützen und, soweit technisch möglich, absichern. Die tatsächlichen technischen Möglichkeiten und Einschränkungen sind bei der Einrichtung zu berücksichtigen.
 
-### 4. Zusammenführung
+### 4. Vertrauen und Regelkonformität
+Die Zugriffs- und Schreibregeln sind verbindliche Arbeitsregeln. Jeder Agent ist verpflichtet, die README und seine eigene Rollenanweisung einzuhalten.
+Technische Berechtigungen unterstützen die Einhaltung dieser Regeln, ersetzen aber nicht die Verpflichtung der Agenten, sie zu befolgen.
+Der Assistent prüft im Rahmen seiner Rollenprüfungen, ob Agenten die festgelegten Zugriffs- und Schreibregeln einhalten. Festgestellte Abweichungen dokumentiert er in seinem Bericht und legt sie dem Projektinhaber zur Entscheidung vor.
+Der Assistent darf festgestellte Verstöße nicht eigenmächtig durch Änderungen an fremden Dateien oder Branches korrigieren.
+
+### 5. Zusammenführung
 
 - Zu Sitzungsbeginn holt der Agent `main` per Merge in seinen Branch.
 - Ein Agent darf einen Pull Request von seinem Branch nach `main` eröffnen (Vorlage: `.github/pull_request_template.md`). Prüfen und zusammenführen darf nur der Projektinhaber, mit „Merge commit“ ohne Squash, damit die Agenten-Branches mit `main` verträglich bleiben.
 
-### 5. Technische Absicherung (vom Projektinhaber einzurichten)
+### 6. Technische Absicherung (vom Projektinhaber einzurichten)
 
 Die GitHub-Einstellungen ergänzen die Regeln und ersetzen sie nicht.
 
