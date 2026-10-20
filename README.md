@@ -82,6 +82,38 @@ fahrflow/
 
 Die Ordnerstruktur dokumentiert Zuständigkeiten, nicht automatisch den Fertigstellungsgrad der darin enthaltenen Dateien. Maßgeblich für den Bearbeitungsstand sind die Dateien selbst und die dazugehörigen Berichte. Bereits vorhandene Einzelberichte in `reports/` bleiben als Altbestand unverändert.
 
+## Spezifikationen und ihre Freigabe
+
+Eine vorhandene Spezifikationsdatei ist nicht automatisch verbindlich freigegeben (Grundregel 4). Diese Sektion schafft Klarheit: Welche Spezifikationen sind tatsächlich freigegeben? Der Projektinhaber führt eine zentrale Freigabetabelle. Agenten erkennen an ihr, welche Spezifikationen sie bindend umsetzen müssen.
+
+### Status freigegebener Spezifikationen
+
+| Spezifikation | Version | Status | Freigabe-Datum |
+|---|---|---|---|
+| `specs/product.md` | 0.3 | Entwurf | — |
+| `specs/auth.md` | 0.1 | Entwurf | — |
+| `specs/orders.md` | 0.1 | Entwurf | — |
+| `specs/assignments.md` | 0.1 | Entwurf | — |
+| `specs/status.md` | 0.1 | Entwurf | — |
+| `specs/trips.md` | 0.1 | Entwurf | — |
+| `specs/handover.md` | 0.1 | Entwurf | — |
+
+### Regeln zur Freigabe
+
+1. **Nur freigegebene Spezifikationen sind verbindlich.** Nur Spezifikationen, die in der Tabelle oben mit Status *Freigegeben* eingetragen sind, dürfen als alleinige Grundlage für die Implementierung dienen. Spezifikationen im Status *Entwurf* werden nicht umgesetzt.
+
+2. **Die Tabelle ist authoritative Quelle.** Ein Arbeitsauftrag nennt eine Spezifikation mit Versionsnummer. Die Freigabetabelle oben ist die verbindliche Quelle für den Status: Sie entscheidet, ob ein Agent die Spezifikation in dieser Version umsetzen darf.
+
+3. **Unklarer Status führt zu Rückfrage, nicht zu Annahme.** Ist der Status einer im Arbeitsauftrag genannten Spezifikation unklar, oder fehlt sie in der Tabelle, hält der Agent an, fragt beim Projektinhaber nach und setzt nicht auf Vermutung um.
+
+4. **Versionswechsel erfordert neue Freigabe.** Ändert sich die Versionsnummer einer Spezifikation, muss der Projektinhaber sie erneut in der Tabelle eintragen und mit *Freigegeben* kennzeichnen, bevor Agenten die neue Version umsetzen.
+
+5. **Widerspruch zwischen Tabelle und Arbeitsauftrag führt zu Halt.** Nennt der Arbeitsauftrag eine Versionsnummer, die in der Freigabetabelle nicht mit Status *Freigegeben* eingetragen ist, hält der Agent an, meldet den Widerspruch in seinem Bericht und arbeitet nicht auf Vermutung weiter.
+
+### Spezifikationen ohne Versionsnummer
+
+Spezifikationen, für die keine explizite Versionsnummer geführt wird, werden eindeutig über ihre Position auf `main` identifiziert. Ist keine Versionsnummer vorhanden, verwendet der Agent den Commit-SHA als Referenz (zum Beispiel: `abc1234f`). Dies stellt sicher, dass auch nach späteren Änderungen klar ist, auf welchem Stand die Implementierung aufsetzte.
+
 ## Grundregeln
 
 0. **Rangfolge.** Bei Widerspruch zwischen README und Rollenanweisung gilt die README. Widersprüche zwischen README und Spezifikationen löst kein Agent selbst. In beiden Fällen hält der Agent im betroffenen Punkt an, meldet den Widerspruch in seinem Bericht und arbeitet im unstrittigen Teil weiter.
